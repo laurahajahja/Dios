@@ -85,3 +85,7 @@ button:hover {
   max-width: 700px;
   margin: 0 auto;
 }
+input[type="checkbox"]:checked + span {
+  text-decoration: line-through;
+  color: #888;
+}
