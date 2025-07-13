@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Filaj - Registro de Ventas</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .contenedor {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    input[type=number] {
+      width: 60px;
+    }
+    .resultado {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>💛 Filaj - Registro de Ventas</h1>
+
+    <p>Precio por unidad:<br>
+      🧴 100 ml: $25.000<br>
+      🧴 300 ml: $35.000
+    </p>
+
+    <label for="venta100">Cantidad vendida (100 ml): </label>
+    <input type="number" id="venta100" min="0" value="0"><br><br>
+
+    <label for="venta300">Cantidad vendida (300 ml): </label>
+    <input type="number" id="venta300" min="0" value="0"><br><br>
+
+    <button onclick="calcularGanancia()">Calcular Ganancia</button>
+
+    <div class="resultado" id="resultado">Ganancia: $0</div>
+
+    <a href="index.html">← Volver al inicio</a>
+  </div>
+
+  <script>
+    function calcularGanancia() {
+      const v100 = parseInt(document.getElementById('venta100').value) || 0;
+      const v300 = parseInt(document.getElementById('venta300').value) || 0;
+
+      const precio100 = 25000;
+      const precio300 = 35000;
+
+      const total = (v100 * precio100) + (v300 * precio300);
+      
+      document.getElementById('resultado').textContent = "Ganancia: $" + total.toLocaleString('es-CO');
+    }
+  </script>
+</body>
+</html>
