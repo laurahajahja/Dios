@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ahorro - Mi Vida Fit</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .marranito {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 4px solid black;
+      background: linear-gradient(to top, black 0%, white 0%);
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>🐷 Mi Marranito de Ahorro</h1>
+
+  <label for="meta">💰 Meta de ahorro: </label>
+  <input type="number" id="meta" placeholder="Ej: 500000"><br><br>
+
+  <label for="guardado">💸 ¿Cuánto has ahorrado?: </label>
+  <input type="number" id="guardado" placeholder="Ej: 20000"><br><br>
+
+  <button onclick="actualizarMarranito()">Actualizar</button>
+
+  <div class="marranito" id="marrano"></div>
+
+  <p id="porcentaje"></p>
+
+  <a href="index.html">← Volver al inicio</a>
+
+  <script>
+    function actualizarMarranito() {
+      const meta = parseFloat(document.getElementById('meta').value);
+      const guardado = parseFloat(document.getElementById('guardado').value);
+      const porc = Math.min((guardado / meta) * 100, 100);
+      const marrano = document.getElementById('marrano');
+      const porcentaje = document.getElementById('porcentaje');
+      
+      marrano.style.background = `linear-gradient(to top, black ${porc}%, white ${porc}%)`;
+      porcentaje.textContent = `Llevas ahorrado el ${porc.toFixed(2)}% de tu meta.`;
+    }
+  </script>
+</body>
+</html>
